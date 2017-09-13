@@ -9,6 +9,7 @@ import java.util.Map;
 
 @Controller
 public class IndexController {
+
     @GetMapping("/")
     public ModelAndView index() {
         Map<String, String> model = new HashMap<>();
