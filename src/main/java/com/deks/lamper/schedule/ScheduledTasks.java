@@ -13,9 +13,8 @@ import java.util.Date;
 @RequiredArgsConstructor
 public class ScheduledTasks {
 
-    private final LampSwitch lampSwitch;
-
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+    private final LampSwitch lampSwitch;
 
     @Scheduled(fixedRate = 5000)
     public void reportCurrentTime() {
