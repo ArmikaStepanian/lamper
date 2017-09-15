@@ -1,6 +1,6 @@
 package com.deks.lamper.schedule;
 
-import com.deks.lamper.model.enums.Position;
+import com.deks.lamper.service.CurrentStatus;
 import com.deks.lamper.service.LampSwitch;
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -15,10 +15,16 @@ public class ScheduledTasks {
 
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
     private final LampSwitch lampSwitch;
+    private final CurrentStatus currentStatus;
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 1000)
     public void reportCurrentTime() {
-        System.out.println("The time is now " + dateFormat.format(new Date()));
-        lampSwitch.setSwitch(Position.ON);
+        System.out.println("The time is now " + dateFormat.format(new Date()) + " position = " + currentStatus.getCurrentPosition());
+        try {
+            lampSwitch.setSwitch(currentStatus.getCurrentPosition());
+        } catch (Exception e) {
+
+        }
+
     }
 }

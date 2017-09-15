@@ -3,7 +3,20 @@
 <html lang="en">
 
 <body>
-<h1>Welcome to Spring, {{ name }}</h1>
+<h1>{{ position }}</h1>
+<h1>{{ mode }}</h1>
+
+<form action="/enable" method="post">
+    <button type="submit" class="btn btn-primary">Enable</button>
+</form>
+
+<form action="/schedule" method="post">
+    <button type="submit" class="btn btn-primary">Schedule</button>
+</form>
+
+<form action="/disable" method="post">
+    <button type="submit" class="btn btn-primary">Disable</button>
+</form>
 </body>
 
 </html>
