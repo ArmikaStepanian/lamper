@@ -26,13 +26,14 @@ public class ScheduledTasks {
 
         //log.debug("The time is now {} , position {}", dateFormat.format(new Date()), currentStatus.getCurrentPosition());
 
-        if (previousPosition == null || !previousPosition.equals(currentStatus.getCurrentPosition())) {
+        Position currentPosition = currentStatus.getCurrentPosition();
+        if (previousPosition == null || !previousPosition.equals(currentPosition)) {
 
-            log.debug("previousPosition is {} , currentPosition is {} ", previousPosition, currentStatus.getCurrentPosition());
-            previousPosition = currentStatus.getCurrentPosition();
+            log.debug("previousPosition is {} , currentPosition is {} ", previousPosition, currentPosition);
+            previousPosition = currentPosition;
 
             try {
-                lampSwitch.setSwitch(currentStatus.getCurrentPosition());
+                lampSwitch.setSwitch(currentPosition);
             } catch (Exception e) {
                 log.error(e.getMessage());
             }
