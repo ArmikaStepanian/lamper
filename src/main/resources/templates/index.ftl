@@ -13,15 +13,21 @@
 <#if position=='OFF'>color-red<#else>color-green</#if>"></i>
         </h1>
     </div>
+    <form name="forceon" action="/forceon" method="post">
+            <button class="btn-block btn-lg btn btn-default <#if mode=='FORCE_ON'>btn-primary</#if>"><i class="glyphicon glyphicon-flash"></i>&nbsp;
+                Force on
+            </button>
+    </form>
+    <br>
     <form name="enable" action="/enable" method="post">
         <button class="btn-block btn-lg btn btn-default <#if mode=='ENABLE'>btn-primary</#if>"><i class="glyphicon glyphicon-play"></i>&nbsp;
-            Enable
+            Schedule every day
         </button>
     </form>
     <br>
     <form name="schedule" action="/schedule" method="post">
         <button class="btn-block btn-lg btn btn-default <#if mode=='SCHEDULE'>btn-primary</#if>"><i class="glyphicon glyphicon-time"></i>&nbsp;
-            Schedule
+            Schedule mon-fri
         </button>
     </form>
     <br>

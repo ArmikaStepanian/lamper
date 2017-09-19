@@ -43,4 +43,10 @@ public class IndexController {
         currentStatusService.setManualMode(ManualMode.DISABLE);
         return new RedirectView("/");
     }
+
+    @PostMapping("/forceon")
+    public RedirectView forceon(){
+        currentStatusService.setManualMode(ManualMode.FORCE_ON);
+        return new RedirectView("/");
+    }
 }

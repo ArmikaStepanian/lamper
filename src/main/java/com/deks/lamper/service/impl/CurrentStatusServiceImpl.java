@@ -35,6 +35,9 @@ public class CurrentStatusServiceImpl implements CurrentStatusService {
         LocalDateTime currentDateTime = this.currentDateTimeService.getCurrentDateTime();
 
         if(!ManualMode.DISABLE.equals(this.manualMode)){
+            if(ManualMode.FORCE_ON.equals(this.manualMode)){
+                return Position.ON;
+            }
             if (days.contains(currentDateTime.getDayOfWeek()) || ManualMode.ENABLE.equals(this.manualMode)) {
                 if (currentDateTime.getHour() >= startHour && currentDateTime.getHour() <= endHour) {
                     return Position.ON;
