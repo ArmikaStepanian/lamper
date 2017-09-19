@@ -31,7 +31,7 @@ public class LampSwitchServiceImpl implements LampSwitchService {
         } else if (OFF.equals(position)) {
             lines = Collections.singletonList("RELE_1=OFF");
         }
-        Path file = Paths.get("C:\\test\\test.txt");
+        Path file = Paths.get("C:\\MP709\\MP709.local.set");
         Files.write(file, lines, Charset.forName("UTF-8"));
     }
 }
