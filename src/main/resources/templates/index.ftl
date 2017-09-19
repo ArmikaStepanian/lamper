@@ -9,21 +9,27 @@
 <body>
 <div class="container-fluid">
     <div class="page-header">
-        <h3>${position}/${mode}</h3>
+        <h1 class="text-center" style="font-size: 7em"><i class="glyphicon glyphicon-off
+<#if position=='OFF'>color-red<#else>color-green</#if>"></i>
+        </h1>
     </div>
-    <div class="btn-group-vertical text-justify">
-        <form name="enable" action="/enable" method="post">
-            <button class="btn btn-primary"><i class="glyphicon glyphicon-play"></i>&nbsp;Enable</button>
-        </form>
-        <br>
-        <form name="schedule" action="/schedule" method="post">
-            <button class="btn btn-primary"><i class="glyphicon glyphicon-time"></i>&nbsp;Schedule</button>
-        </form>
-        <br>
-        <form name="disable" action="/disable" method="post">
-            <button class="btn btn-primary"><i class="glyphicon glyphicon-stop"></i>&nbsp;Disable</button>
-        </form>
-    </div>
+    <form name="enable" action="/enable" method="post">
+        <button class="btn-block btn-lg btn btn-default <#if mode=='ENABLE'>btn-primary</#if>"><i class="glyphicon glyphicon-play"></i>&nbsp;
+            Enable
+        </button>
+    </form>
+    <br>
+    <form name="schedule" action="/schedule" method="post">
+        <button class="btn-block btn-lg btn btn-default <#if mode=='SCHEDULE'>btn-primary</#if>"><i class="glyphicon glyphicon-time"></i>&nbsp;
+            Schedule
+        </button>
+    </form>
+    <br>
+    <form name="disable" action="/disable" method="post">
+        <button class="btn-block btn-lg btn btn-default <#if mode=='DISABLE'>btn-primary</#if>"><i class="glyphicon glyphicon-stop"></i>&nbsp;
+            Disable
+        </button>
+    </form>
 </div>
 
 <!-- Optional JavaScript -->
