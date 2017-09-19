@@ -1,8 +1,8 @@
 package com.deks.lamper.schedule;
 
 import com.deks.lamper.model.enums.Position;
-import com.deks.lamper.service.CurrentStatus;
-import com.deks.lamper.service.LampSwitch;
+import com.deks.lamper.service.CurrentStatusService;
+import com.deks.lamper.service.LampSwitchService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -16,24 +16,24 @@ import java.text.SimpleDateFormat;
 public class ScheduledTasks {
 
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-    private final LampSwitch lampSwitch;
-    private final CurrentStatus currentStatus;
+    private final LampSwitchService lampSwitchService;
+    private final CurrentStatusService currentStatusService;
 
     private Position previousPosition = null;
 
     @Scheduled(fixedRate = 1000)
     public void reportCurrentTime() {
 
-        //log.debug("The time is now {} , position {}", dateFormat.format(new Date()), currentStatus.getCurrentPosition());
+        //log.debug("The time is now {} , position {}", dateFormat.format(new Date()), currentStatusService.getCurrentPosition());
 
-        Position currentPosition = currentStatus.getCurrentPosition();
+        Position currentPosition = currentStatusService.getCurrentPosition();
         if (previousPosition == null || !previousPosition.equals(currentPosition)) {
 
             log.debug("previousPosition is {} , currentPosition is {} ", previousPosition, currentPosition);
             previousPosition = currentPosition;
 
             try {
-                lampSwitch.setSwitch(currentPosition);
+                lampSwitchService.setSwitch(currentPosition);
             } catch (Exception e) {
                 log.error(e.getMessage());
             }

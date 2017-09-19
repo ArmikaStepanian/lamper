@@ -1,7 +1,7 @@
 package com.deks.lamper.service.impl;
 
 import com.deks.lamper.model.enums.Position;
-import com.deks.lamper.service.LampSwitch;
+import com.deks.lamper.service.LampSwitchService;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +20,7 @@ import static com.deks.lamper.model.enums.Position.ON;
  * @author ISmorodin
  */
 @Service
-public class LampSwitchImpl implements LampSwitch {
+public class LampSwitchServiceImpl implements LampSwitchService {
 
     @Override
     @SneakyThrows

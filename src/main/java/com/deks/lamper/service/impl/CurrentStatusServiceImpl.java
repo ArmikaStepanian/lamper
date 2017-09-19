@@ -2,8 +2,8 @@ package com.deks.lamper.service.impl;
 
 import com.deks.lamper.model.enums.ManualMode;
 import com.deks.lamper.model.enums.Position;
-import com.deks.lamper.service.CurrentDateTime;
-import com.deks.lamper.service.CurrentStatus;
+import com.deks.lamper.service.CurrentDateTimeService;
+import com.deks.lamper.service.CurrentStatusService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ import static java.time.DayOfWeek.*;
 
 @Service
 @RequiredArgsConstructor
-public class CurrentStatusImpl implements CurrentStatus {
+public class CurrentStatusServiceImpl implements CurrentStatusService {
 
     private static List<DayOfWeek> days = Arrays.asList(MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY);
 
@@ -27,12 +27,12 @@ public class CurrentStatusImpl implements CurrentStatus {
     private ManualMode manualMode = ManualMode.SCHEDULE;
 
     @Autowired
-    CurrentDateTime currentDateTime;
+    CurrentDateTimeService currentDateTimeService;
 
     @Override
     public Position getCurrentPosition() {
 
-        LocalDateTime currentDateTime = this.currentDateTime.getCurrentDateTime();
+        LocalDateTime currentDateTime = this.currentDateTimeService.getCurrentDateTime();
 
         if(!ManualMode.DISABLE.equals(this.manualMode)){
             if (days.contains(currentDateTime.getDayOfWeek()) || ManualMode.ENABLE.equals(this.manualMode)) {

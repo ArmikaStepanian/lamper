@@ -2,6 +2,6 @@ package com.deks.lamper.service;
 
 import java.time.LocalDateTime;
 
-public interface CurrentDateTime {
+public interface CurrentDateTimeService {
     LocalDateTime getCurrentDateTime();
 }
