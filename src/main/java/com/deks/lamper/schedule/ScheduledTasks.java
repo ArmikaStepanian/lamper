@@ -21,7 +21,7 @@ public class ScheduledTasks {
 
     private Position previousPosition = null;
 
-    @Scheduled(fixedRate = 1000)
+    @Scheduled(fixedRate = 500)
     public void reportCurrentTime() {
 
         //log.debug("The time is now {} , position {}", dateFormat.format(new Date()), currentStatusService.getCurrentPosition());
