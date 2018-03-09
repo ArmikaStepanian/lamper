@@ -9,4 +9,6 @@ public interface CurrentStatusService {
     void setManualMode(ManualMode manualMode);
 
     ManualMode getManualMode();
+
+    int getStartHour();
 }

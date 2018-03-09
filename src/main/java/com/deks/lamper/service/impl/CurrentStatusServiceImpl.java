@@ -21,8 +21,8 @@ public class CurrentStatusServiceImpl implements CurrentStatusService {
 
     private static List<DayOfWeek> days = Arrays.asList(MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY);
 
-    private static int startHour = 9; //10AM
-    private static int endHour = 19; //20PM
+    private int startHour = 9; //10AM
+    private int endHour = 19; //20PM
 
     private ManualMode manualMode = ManualMode.SCHEDULE;
 
@@ -55,5 +55,10 @@ public class CurrentStatusServiceImpl implements CurrentStatusService {
     @Override
     public ManualMode getManualMode(){
         return this.manualMode;
+    }
+
+    @Override
+    public int getStartHour() {
+        return this.startHour;
     }
 }

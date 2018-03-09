@@ -36,6 +36,11 @@
             Disable
         </button>
     </form>
+    <br>
+    <form name="time" action="/time" method="post">
+       <button class="btn-block btn-lg btn btn-link"><i class="glyphicon glyphicon-cog"></i>
+       </button>
+     </form>
 </div>
 
 <!-- Optional JavaScript -->

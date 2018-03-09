@@ -49,4 +49,21 @@ public class IndexController {
         currentStatusService.setManualMode(ManualMode.FORCE_ON);
         return new RedirectView("/");
     }
+
+    @PostMapping("/time")
+    public RedirectView time(){
+        return new RedirectView("/time");
+    }
+
+    @PostMapping("/back")
+    public RedirectView timeBack(){
+        return new RedirectView("/");
+    }
+
+    @GetMapping("/time")
+    public ModelAndView getTime() {
+        Map<String, Integer> model = new HashMap<>();
+        model.put("start", currentStatusService.getStartHour());
+        return new ModelAndView("time", model);
+    }
 }
